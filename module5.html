@@ -1,0 +1,127 @@
+<html>
+<head><title>Module 5</title></head>
+
+<body>
+<h1>Module 5</h1>
+<h2>Part 1 </h2>
+
+<script type="text/javascript">
+document.write('<p> 1. Create a function to reverse any word that you type in. This can be typed into either an input box or an alert box, and then print the result in a box or on the webpage.</p>');
+</script>
+
+<script type="text/javascript">
+//Reverse word
+
+document.write('<p> Enter a word.')
+
+
+function reverse(word) {
+  return word.split('').reverse().join('');
+};
+
+function calc(){
+    var t = document.getElementById("target");
+    t.innerHTML = reverse(document.getElementById('word').value);
+}
+</script>
+<p>
+<form>
+    <input id="word" type="text" size="20">
+    <input type="button" value="REVERSE" onClick="calc();">
+</form>
+</p>
+
+<div id="target"></div>
+
+<script type="text/javascript">
+document.write('<p>2. Create a function that takes an input number, and prints a table with the first 20 multiples of the number, in order 5x4</p>');
+</script>
+
+<script type="text/javascript">
+//Multiplication
+
+document.write('<p>Enter a number.')
+
+
+function multiple(num) {
+    var i, j, s, l;
+	s = "<table>";
+	for (i = 1; i <= 5; i++) {
+		s=s+"<tr>"
+		for (j = 1; j <= 4; j++) {
+			s=s+"<td>"+(num*((i-1)*4+j))+"</td>";
+		}
+            	s=s+"</tr>"
+    }
+    return s+"</table>";
+};
+
+function calc1(){
+    var t = document.getElementById("target_table");
+    t.innerHTML = multiple(document.getElementById('num').value);
+}
+</script>
+<p>
+<form>
+    <input id="num" type="number" size="10">
+    <input type="button" value="MULTIPLES" onClick="calc1();">
+</form>
+</p>
+
+<div id="target_table"></div>
+
+<h2>Part 2</h2>
+
+<script type="text/javascript">
+document.write('<p>1. Write a function to load the presidents.csv data and display the data as an html table.</p>');
+</script>
+
+<script type="text/javascript" src="https://d3js.org/d3.v2.js"></script>
+
+<script>
+d3.text("https://raw.githubusercontent.com/charleyferrari/CUNY_DATA_608/master/module5/data/presidents.csv", function (datapr) {
+    var parsedCSV = d3.csv.parseRows(datapr);
+    var out = d3.select("#output")
+        .append("table")        
+        .selectAll("tr")
+        .data(parsedCSV)
+        .enter().append("tr")
+        .selectAll("td")
+        .data(function (d) { return d; })
+        .enter().append("td")
+        .text(function (d) { return d; });
+        });
+</script>
+    
+<div id="output"></div>
+
+<script type="text/javascript">
+document.write('<p>Write a function that will return that president’s height & weight when you type it in.</p>');
+</script>
+
+<script>
+function search() {
+            container = document.getElementById('output');
+            var value = container.getElementsByTagName('table')[0].rows;
+            var president = document.getElementById('name').value
+            for (i = 0; i < value.length; i++) {
+                if (value[i].cells[0].innerHTML == president) {
+                    var t = document.getElementById("pinfo");
+                    t.innerHTML = "Height: " + value[i].cells[1].innerHTML+"," + " Weight: " + value[i].cells[2].innerHTML;
+                }
+                       }
+        };
+</script>
+
+<p>
+<form>
+    <input id="name" type="text" size="40">
+    <input type="button" value="SEARCH" onClick="search();">
+</form>
+</p>
+
+<div id="pinfo"></div>
+<div id="output"></div>
+
+</body>
+</html>
