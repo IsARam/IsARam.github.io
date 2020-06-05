@@ -156,7 +156,8 @@ input, select, textarea {
 
 	strong, b {
 		font-weight: 800;
-		color: #2C8B91;
+		color: midnightblue;
+		text-align:right;
 	}
 
 	em, i {
@@ -2224,8 +2225,9 @@ input, select, textarea {
 			}
 
 				#main > section.dark h2, #main > section.dark h3, #main > section.dark h4, #main > section.dark h5, #main > section.dark h6 {
-					color: #2c8b91;
+					color: midnightblue;
 					font-weight:800;
+					text-align:right;
 				}
 
 				#main > section.dark strong {
