@@ -2224,7 +2224,7 @@ input, select, textarea {
 			}
 
 				#main > section.dark h2, #main > section.dark h3, #main > section.dark h4, #main > section.dark h5, #main > section.dark h6 {
-					color: inherit;
+					color: #2c8b91;
 				}
 
 				#main > section.dark strong {
