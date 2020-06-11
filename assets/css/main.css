@@ -161,8 +161,9 @@ input, select, textarea {
 	}
 
 	em, i {
+		font-weight:800;
 		font-style: italic;
-		color:#000000;
+		color:midnightblue;
 	}
 
 	a {
